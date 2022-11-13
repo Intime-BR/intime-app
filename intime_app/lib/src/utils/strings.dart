@@ -5,3 +5,6 @@ String landingPageTitle = 'Ta hora da Chamada?';
 
 String landingPageDescription =
     'Então você está no lugar certo, na InTime você confirma sua presença imediatamente com segurança e eficiência.';
+
+String loginPageTitle =
+    'Entre em sua conta InTime e aumente sua produtivade como nunca.';

@@ -50,9 +50,11 @@ class LadingPage extends StatelessWidget {
                           fit: BoxFit.fill,
                         ),
                       ),
-                      Image.asset(
-                        'assets/images/boneco.png',
-                        width: screenWidth,
+                      SizedBox(
+                        width: screenWidth * 0.9,
+                        child: Image.asset(
+                          'assets/images/boneco.png',
+                        ),
                       ),
                     ],
                   ),
@@ -91,7 +93,8 @@ class LadingPage extends StatelessWidget {
                           borderRadius: BorderRadius.circular(50),
                         ),
                         child: ElevatedButton(
-                          onPressed: () => debugPrint('NEXT'),
+                          onPressed: () =>
+                              Navigator.of(context).pushNamed('/cadastro'),
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.transparent,
                             shape: RoundedRectangleBorder(
