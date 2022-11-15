@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:intime_app/src/components/base_input.dart';
 import 'package:intime_app/src/utils/strings.dart';
 
-class Cadastro extends StatefulWidget {
-  const Cadastro({super.key});
+class Login extends StatefulWidget {
+  const Login({super.key});
 
   @override
-  State<Cadastro> createState() => _CadastroState();
+  State<Login> createState() => _LoginState();
 }
 
-class _CadastroState extends State<Cadastro> {
+class _LoginState extends State<Login> {
   final matriculaController = TextEditingController();
   final senhaController = TextEditingController();
 
@@ -37,7 +37,7 @@ class _CadastroState extends State<Cadastro> {
               child: Column(
                 children: [
                   const SizedBox(
-                    height: 60,
+                    height: 100,
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 20, right: 20),
@@ -77,7 +77,7 @@ class _CadastroState extends State<Cadastro> {
                               height: 50,
                               child: ElevatedButton(
                                   onPressed: () => Navigator.of(context)
-                                      .pushNamed('/cadastro'),
+                                      .pushNamed('/initial-screen'),
                                   style: ElevatedButton.styleFrom(
                                     backgroundColor: const Color(0xff6470E8),
                                     shape: RoundedRectangleBorder(

@@ -46,14 +46,17 @@ class LadingPage extends StatelessWidget {
                         alignment: Alignment.topLeft,
                         child: Image.asset(
                           'assets/images/logo_landing.png',
-                          width: 100,
-                          fit: BoxFit.fill,
+                          width: 80,
+                          height: 30,
+                          fit: BoxFit.contain,
                         ),
                       ),
                       SizedBox(
-                        width: screenWidth * 0.9,
                         child: Image.asset(
                           'assets/images/boneco.png',
+                          width: screenWidth,
+                          height: screenHeight * 0.5,
+                          fit: BoxFit.contain,
                         ),
                       ),
                     ],
@@ -68,6 +71,9 @@ class LadingPage extends StatelessWidget {
                   color: const Color(0xffFFFFFF),
                   child: Column(
                     children: [
+                      const SizedBox(
+                        height: 30,
+                      ),
                       Text(
                         landingPageTitle,
                         style: const TextStyle(

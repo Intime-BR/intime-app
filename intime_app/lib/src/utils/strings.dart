@@ -8,3 +8,8 @@ String landingPageDescription =
 
 String loginPageTitle =
     'Entre em sua conta InTime e aumente sua produtivade como nunca.';
+
+String notFoundTitle = 'Oops!';
+
+String notFoundDescription =
+    'Parece que você se perdeu. Não conseguimos encontrar o que você está procurando.';
