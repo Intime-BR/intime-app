@@ -25,7 +25,7 @@ class LadingPage extends StatelessWidget {
             children: [
               Container(
                 width: screenWidth,
-                height: screenHeight * 0.61,
+                height: screenHeight * 0.60,
                 decoration: BoxDecoration(
                   color: const Color(0xff17192E),
                   border: Border.all(
@@ -38,29 +38,26 @@ class LadingPage extends StatelessWidget {
                     bottomRight: Radius.circular(200),
                   ),
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Column(
-                    children: [
-                      Align(
-                        alignment: Alignment.topLeft,
-                        child: Image.asset(
-                          'assets/images/logo_landing.png',
-                          width: 80,
-                          height: 30,
-                          fit: BoxFit.contain,
-                        ),
+                child: Column(
+                  children: [
+                    Align(
+                      alignment: Alignment.topLeft,
+                      child: Image.asset(
+                        'assets/images/logo_landing.png',
+                        width: 80,
+                        height: 30,
+                        fit: BoxFit.contain,
                       ),
-                      SizedBox(
-                        child: Image.asset(
-                          'assets/images/boneco.png',
-                          width: screenWidth,
-                          height: screenHeight * 0.5,
-                          fit: BoxFit.contain,
-                        ),
+                    ),
+                    SizedBox(
+                      child: Image.asset(
+                        'assets/images/boneco.png',
+                        width: screenWidth,
+                        height: screenHeight * 0.5,
+                        fit: BoxFit.contain,
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
               const SizedBox(
@@ -80,8 +77,7 @@ class LadingPage extends StatelessWidget {
                             fontSize: 24, fontWeight: FontWeight.w500),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(
-                            left: 12.0, right: 12.0, top: 8.0),
+                        padding: const EdgeInsets.only(left: 12.0, right: 12.0),
                         child: Text(
                           landingPageDescription,
                           textAlign: TextAlign.center,

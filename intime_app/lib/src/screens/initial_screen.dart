@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intime_app/src/components/card_initial_screen.dart';
 import 'package:intime_app/src/components/side_nav.dart';
 
 class InitialScreen extends StatefulWidget {
@@ -45,6 +46,10 @@ class _InitialScreenState extends State<InitialScreen> {
             ),
           ),
         ],
+      ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: const [CardInitialScreen()],
       ),
     );
   }
