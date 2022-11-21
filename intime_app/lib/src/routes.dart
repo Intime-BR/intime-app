@@ -9,7 +9,7 @@ class Routes {
     switch (routeSettings.name) {
       case '/':
         return MaterialPageRoute(builder: (context) => const LadingPage());
-      case '/cadastro':
+      case '/login':
         return MaterialPageRoute(builder: (context) => const Login());
       case '/initial-screen':
         return MaterialPageRoute(builder: (context) => const InitialScreen());

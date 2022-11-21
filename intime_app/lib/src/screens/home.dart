@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:intime_app/src/utils/strings.dart';
 
 class LadingPage extends StatelessWidget {
@@ -96,7 +95,7 @@ class LadingPage extends StatelessWidget {
                         ),
                         child: ElevatedButton(
                           onPressed: () =>
-                              Navigator.of(context).pushNamed('/cadastro'),
+                              Navigator.of(context).pushNamed('/login'),
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.transparent,
                             shape: RoundedRectangleBorder(

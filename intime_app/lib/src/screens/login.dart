@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intime_app/src/components/base_input.dart';
+import 'package:intime_app/src/services/login_services.dart';
 import 'package:intime_app/src/utils/strings.dart';
 
 class Login extends StatefulWidget {
@@ -24,6 +25,7 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
+    LoginService loginService = LoginService();
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -76,8 +78,15 @@ class _LoginState extends State<Login> {
                               width: screenWidth,
                               height: 50,
                               child: ElevatedButton(
-                                  onPressed: () => Navigator.of(context)
-                                      .pushNamed('/initial-screen'),
+                                  onPressed: () async => {
+                                        await loginService.validateUser(
+                                                matriculaController.text,
+                                                senhaController.text)
+                                            ? Navigator.of(context)
+                                                .pushNamed('/initial-screen')
+                                            : Navigator.of(context)
+                                                .pushNamed('/login')
+                                      },
                                   style: ElevatedButton.styleFrom(
                                     backgroundColor: const Color(0xff6470E8),
                                     shape: RoundedRectangleBorder(

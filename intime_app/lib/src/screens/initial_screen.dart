@@ -381,7 +381,7 @@ class _InitialScreenState extends State<InitialScreen>
                         borderRadius: BorderRadius.circular(8),
                       ),
                     ),
-                    child: const Text('Entrar agora')),
+                    child: const Text('Marcar Presença')),
               ),
             ),
           ],
