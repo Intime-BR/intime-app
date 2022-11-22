@@ -373,8 +373,7 @@ class _InitialScreenState extends State<InitialScreen>
                 width: screenWidth,
                 height: 50,
                 child: ElevatedButton(
-                    onPressed: () =>
-                        Navigator.of(context).pushNamed('/initial-screen'),
+                    onPressed: () => Navigator.of(context).pushNamed('/camera'),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xff6470E8),
                       shape: RoundedRectangleBorder(
