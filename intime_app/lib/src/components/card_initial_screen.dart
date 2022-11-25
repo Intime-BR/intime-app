@@ -78,15 +78,23 @@ class _CardInitialScreenState extends State<CardInitialScreen> {
                 ),
                 Flexible(
                   child: Container(
-                    width: 60,
-                    height: 60,
-                    decoration: const BoxDecoration(
-                      color: Colors.amber,
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(100),
+                      width: 60,
+                      height: 60,
+                      decoration: const BoxDecoration(
+                        color: Colors.amber,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(100),
+                        ),
                       ),
-                    ),
-                  ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.all(Radius.circular(100)),
+                        child: Image.asset(
+                          'assets/images/wladao.jpeg',
+                          width: 80,
+                          height: 30,
+                          fit: BoxFit.cover,
+                        ),
+                      )),
                 )
               ],
             ),
