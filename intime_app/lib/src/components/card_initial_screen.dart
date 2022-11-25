@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:intime_app/src/services/initial_screen_services.dart';
 
 class CardInitialScreen extends StatefulWidget {
   const CardInitialScreen({super.key});
@@ -8,10 +11,26 @@ class CardInitialScreen extends StatefulWidget {
 }
 
 class _CardInitialScreenState extends State<CardInitialScreen> {
+  Map<String, dynamic>? cardData = {};
+
+  @override
+  void initState() {
+    super.initState();
+    _getCardData();
+  }
+
+  _getCardData() async {
+    cardData = await InitialScreenService().getDataCard();
+    setState(() {
+      cardData = cardData;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
+
     return Container(
       width: screenWidth,
       height: screenHeight * 0.20,
@@ -41,9 +60,9 @@ class _CardInitialScreenState extends State<CardInitialScreen> {
                   children: [
                     SizedBox(
                       width: screenWidth * 0.6,
-                      child: const Text(
-                        'Estevão Boaventura Almeida',
-                        style: TextStyle(
+                      child: Text(
+                        '${cardData?['aluno']['nome']}',
+                        style: const TextStyle(
                           fontSize: 20,
                           overflow: TextOverflow.ellipsis,
                         ),
@@ -52,7 +71,9 @@ class _CardInitialScreenState extends State<CardInitialScreen> {
                     const SizedBox(
                       height: 2,
                     ),
-                    const Text('3B1 | 12002097')
+                    Text(cardData != null
+                        ? '${cardData?['aluno']['turma']} | ${cardData?['aluno']['matricula']}'
+                        : '')
                   ],
                 ),
                 Flexible(
@@ -78,16 +99,18 @@ class _CardInitialScreenState extends State<CardInitialScreen> {
               children: [
                 Expanded(
                   child: Column(
-                    children: const [
-                      Text('Última Presença',
+                    children: [
+                      const Text('Última Presença',
                           style: TextStyle(
                             fontSize: 14.5,
                             overflow: TextOverflow.ellipsis,
                           )),
-                      SizedBox(
+                      const SizedBox(
                         height: 6,
                       ),
-                      Text('5'),
+                      Text(cardData != null
+                          ? '${cardData?['dataCard']['ultimaPresenca']}'
+                          : ''),
                     ],
                   ),
                 ),
@@ -114,9 +137,9 @@ class _CardInitialScreenState extends State<CardInitialScreen> {
                         height: 6,
                       ),
                       RichText(
-                        text: const TextSpan(
+                        text: TextSpan(
                           children: [
-                            WidgetSpan(
+                            const WidgetSpan(
                               child: Icon(
                                 Icons.circle,
                                 size: 12,
@@ -124,8 +147,10 @@ class _CardInitialScreenState extends State<CardInitialScreen> {
                               ),
                             ),
                             TextSpan(
-                              text: ' Presente',
-                              style: TextStyle(
+                              text: cardData != null
+                                  ? ' ${cardData?['dataCard']['status']}'
+                                  : '',
+                              style: const TextStyle(
                                 color: Colors.black,
                               ),
                             )
@@ -146,16 +171,18 @@ class _CardInitialScreenState extends State<CardInitialScreen> {
                 ),
                 Expanded(
                   child: Column(
-                    children: const [
-                      Text('Faltas Diárias',
+                    children: [
+                      const Text('Faltas Diárias',
                           style: TextStyle(
                             fontSize: 14.5,
                             overflow: TextOverflow.ellipsis,
                           )),
-                      SizedBox(
+                      const SizedBox(
                         height: 6,
                       ),
-                      Text('5'),
+                      Text(cardData != null
+                          ? '${cardData?['dataCard']['faltasDiarias']}'
+                          : ''),
                     ],
                   ),
                 ),

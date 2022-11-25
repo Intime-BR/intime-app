@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intime_app/src/components/card_initial_screen.dart';
 import 'package:intime_app/src/components/side_nav.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class InitialScreen extends StatefulWidget {
   const InitialScreen({super.key});
@@ -11,6 +12,11 @@ class InitialScreen extends StatefulWidget {
 
 class _InitialScreenState extends State<InitialScreen>
     with TickerProviderStateMixin {
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
@@ -89,143 +95,7 @@ class _InitialScreenState extends State<InitialScreen>
               child: TabBarView(
                 controller: tabController,
                 children: [
-                  DataTable(columnSpacing: 30, columns: const [
-                    DataColumn(
-                      label: Text('Horarios'),
-                    ),
-                    DataColumn(
-                      label: Text('Segunda'),
-                    ),
-                    DataColumn(
-                      label: Text('Terça'),
-                    )
-                  ], rows: [
-                    DataRow(
-                      cells: [
-                        const DataCell(Text('7:20 | 8:10')),
-                        const DataCell(Text('Matemática')),
-                        DataCell(RichText(
-                          text: const TextSpan(
-                            children: [
-                              WidgetSpan(
-                                child: Icon(
-                                  Icons.circle,
-                                  size: 12,
-                                  color: Color(0xff4A9231),
-                                ),
-                              ),
-                              TextSpan(
-                                text: ' Presente',
-                                style: TextStyle(
-                                  color: Colors.black,
-                                ),
-                              )
-                            ],
-                          ),
-                        )),
-                      ],
-                    ),
-                    DataRow(
-                      cells: [
-                        const DataCell(Text('7:20 | 8:10')),
-                        const DataCell(Text('Matemática')),
-                        DataCell(RichText(
-                          text: const TextSpan(
-                            children: [
-                              WidgetSpan(
-                                child: Icon(
-                                  Icons.circle,
-                                  size: 12,
-                                  color: Color(0xff4A9231),
-                                ),
-                              ),
-                              TextSpan(
-                                text: ' Presente',
-                                style: TextStyle(
-                                  color: Colors.black,
-                                ),
-                              )
-                            ],
-                          ),
-                        )),
-                      ],
-                    ),
-                    DataRow(
-                      cells: [
-                        const DataCell(Text('7:20 | 8:10')),
-                        const DataCell(Text('Matemática')),
-                        DataCell(RichText(
-                          text: const TextSpan(
-                            children: [
-                              WidgetSpan(
-                                child: Icon(
-                                  Icons.circle,
-                                  size: 12,
-                                  color: Color(0xff4A9231),
-                                ),
-                              ),
-                              TextSpan(
-                                text: ' Presente',
-                                style: TextStyle(
-                                  color: Colors.black,
-                                ),
-                              )
-                            ],
-                          ),
-                        )),
-                      ],
-                    ),
-                    DataRow(
-                      cells: [
-                        const DataCell(Text('7:20 | 8:10')),
-                        const DataCell(Text('Matemática')),
-                        DataCell(RichText(
-                          text: const TextSpan(
-                            children: [
-                              WidgetSpan(
-                                child: Icon(
-                                  Icons.circle,
-                                  size: 12,
-                                  color: Color(0xff4A9231),
-                                ),
-                              ),
-                              TextSpan(
-                                text: ' Presente',
-                                style: TextStyle(
-                                  color: Colors.black,
-                                ),
-                              )
-                            ],
-                          ),
-                        )),
-                      ],
-                    ),
-                    DataRow(
-                      cells: [
-                        const DataCell(Text('7:20 | 8:10')),
-                        const DataCell(Text('Matemática')),
-                        DataCell(RichText(
-                          text: const TextSpan(
-                            children: [
-                              WidgetSpan(
-                                child: Icon(
-                                  Icons.circle,
-                                  size: 12,
-                                  color: Color(0xff4A9231),
-                                ),
-                              ),
-                              TextSpan(
-                                text: ' Presente',
-                                style: TextStyle(
-                                  color: Colors.black,
-                                ),
-                              )
-                            ],
-                          ),
-                        )),
-                      ],
-                    ),
-                  ]),
+                  const Text('teste'),
                   DataTable(columnSpacing: 30, columns: const [
                     DataColumn(
                       label: Text('Horarios'),
