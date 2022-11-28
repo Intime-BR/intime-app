@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:intime_app/src/services/initial_screen_services.dart';
 
 class CameraScreen extends StatefulWidget {
   const CameraScreen({super.key});
@@ -86,8 +87,7 @@ class _CameraScreenState extends State<CameraScreen> {
       child: CircleAvatar(
         radius: 32,
         backgroundColor: Colors.white,
-        child: ElevatedButton(
-            onPressed: _takePicture, child: const Icon(Icons.camera)),
+        child: ElevatedButton(onPressed: _takePicture, child: const Text('')),
       ),
     );
   }
@@ -122,8 +122,12 @@ class _CameraScreenState extends State<CameraScreen> {
       ),
       floatingActionButton: (imagem != null)
           ? FloatingActionButton(
-              onPressed: () => Navigator.pop(context),
-              child: const Text('queijo'),
+              onPressed: () async => {
+                await InitialScreenService().checkStudentPresence()
+                    ? Navigator.pop(context)
+                    : ''
+              },
+              child: const Text(''),
             )
           : null,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,

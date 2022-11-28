@@ -1,7 +1,6 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:intime_app/src/services/initial_screen_services.dart';
+import 'package:intime_app/src/utils/functions.dart';
 
 class CardInitialScreen extends StatefulWidget {
   const CardInitialScreen({super.key});
@@ -61,7 +60,7 @@ class _CardInitialScreenState extends State<CardInitialScreen> {
                     SizedBox(
                       width: screenWidth * 0.6,
                       child: Text(
-                        '${cardData?['aluno']['nome']}',
+                        cardData != null ? '${cardData?['aluno']['nome']}' : '',
                         style: const TextStyle(
                           fontSize: 20,
                           overflow: TextOverflow.ellipsis,
@@ -147,11 +146,13 @@ class _CardInitialScreenState extends State<CardInitialScreen> {
                       RichText(
                         text: TextSpan(
                           children: [
-                            const WidgetSpan(
+                            WidgetSpan(
                               child: Icon(
                                 Icons.circle,
                                 size: 12,
-                                color: Color(0xff4A9231),
+                                color: manageStatusColor(cardData != null
+                                    ? cardData!['dataCard']['status']
+                                    : ''),
                               ),
                             ),
                             TextSpan(
