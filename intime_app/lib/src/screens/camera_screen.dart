@@ -36,7 +36,7 @@ class _CameraScreenState extends State<CameraScreen> {
     if (cameras.isEmpty) {
       print('Camera nao encontrada');
     } else {
-      _previewCamera(cameras.first);
+      _previewCamera(cameras[1]);
     }
   }
 
@@ -83,11 +83,27 @@ class _CameraScreenState extends State<CameraScreen> {
 
   _captureButton() {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 24.0),
-      child: CircleAvatar(
-        radius: 32,
-        backgroundColor: Colors.white,
-        child: ElevatedButton(onPressed: _takePicture, child: const Text('')),
+      padding: const EdgeInsets.all(40.0),
+      child: Container(
+        width: 80,
+        height: 80,
+        decoration: const BoxDecoration(boxShadow: [
+          BoxShadow(
+            color: Colors.white,
+            blurStyle: BlurStyle.outer,
+            spreadRadius: 3,
+            offset: Offset(0, 0), // changes position of shadow
+          ),
+        ], borderRadius: BorderRadius.all(Radius.circular(100))),
+        child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(100),
+              ),
+            ),
+            onPressed: _takePicture,
+            child: const Text('')),
       ),
     );
   }
@@ -109,9 +125,10 @@ class _CameraScreenState extends State<CameraScreen> {
     size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Tire uma selfie para validar sua presença'),
-        backgroundColor: const Color(0xff2F2F2F).withOpacity(0.57),
+        title: const Text('Tire uma selfie para \n validar sua presença'),
+        backgroundColor: const Color(0xff2f2f2f).withOpacity(0.57),
         centerTitle: true,
+        toolbarHeight: 105,
         elevation: 0,
       ),
       body: Container(
@@ -122,12 +139,16 @@ class _CameraScreenState extends State<CameraScreen> {
       ),
       floatingActionButton: (imagem != null)
           ? FloatingActionButton(
+              backgroundColor: Colors.white,
               onPressed: () async => {
                 await InitialScreenService().checkStudentPresence()
                     ? Navigator.pop(context)
                     : ''
               },
-              child: const Text(''),
+              child: const Icon(
+                Icons.check,
+                color: Colors.green,
+              ),
             )
           : null,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,

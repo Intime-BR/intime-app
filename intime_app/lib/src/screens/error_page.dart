@@ -47,7 +47,7 @@ class ErrorPage extends StatelessWidget {
                   width: screenWidth * 0.5,
                   height: 50,
                   child: ElevatedButton(
-                      onPressed: () => Navigator.of(context).pushNamed('/'),
+                      onPressed: () => Navigator.pop(context),
                       style: ElevatedButton.styleFrom(
                         side: const BorderSide(
                             width: 1, color: Color.fromRGBO(39, 52, 182, 0.5)),

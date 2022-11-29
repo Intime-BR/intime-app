@@ -1,10 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:intime_app/src/utils/strings.dart';
 
-class LadingPage extends StatelessWidget {
+class LadingPage extends StatefulWidget {
   const LadingPage({super.key});
 
   @override
+  State<LadingPage> createState() => _LadingPageState();
+}
+
+class _LadingPageState extends State<LadingPage> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
@@ -18,6 +28,7 @@ class LadingPage extends StatelessWidget {
     );
 
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
           backgroundColor: const Color(0xffFFFFFF),
           body: Column(
@@ -39,13 +50,17 @@ class LadingPage extends StatelessWidget {
                 ),
                 child: Column(
                   children: [
-                    Align(
-                      alignment: Alignment.topLeft,
-                      child: Image.asset(
-                        'assets/images/logo_landing.png',
-                        width: 80,
-                        height: 30,
-                        fit: BoxFit.contain,
+                    Padding(
+                      padding: const EdgeInsets.only(
+                          top: 15.0, bottom: 10.0, left: 10.0, right: 10.0),
+                      child: Align(
+                        alignment: Alignment.topLeft,
+                        child: Image.asset(
+                          'assets/images/logo_landing.png',
+                          width: 80,
+                          height: 30,
+                          fit: BoxFit.contain,
+                        ),
                       ),
                     ),
                     SizedBox(

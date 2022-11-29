@@ -34,7 +34,7 @@ class SideNav extends StatelessWidget {
             ),
             title: const Text("Histórico de presença"),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.pushNamed(context, '/lasjdklsa');
             },
           ),
           ListTile(
@@ -107,8 +107,8 @@ class SideNav extends StatelessWidget {
             },
           ),
           Expanded(
-            child: Padding(
-              padding: const EdgeInsets.only(bottom: 25),
+            child: Container(
+              margin: const EdgeInsets.only(bottom: 60),
               child: Align(
                 alignment: Alignment.bottomCenter,
                 child: ListTile(
